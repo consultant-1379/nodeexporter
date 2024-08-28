@@ -1,0 +1,11 @@
+[Unit]
+Description=Node Exporter
+Wants=network-online.target
+Wants=node-exporter-consul.service
+After=network-online.target
+
+[Service]
+ExecStart=/opt/ericsson/esm/bin/node_exporter.sh
+
+[Install]
+WantedBy=multi-user.target

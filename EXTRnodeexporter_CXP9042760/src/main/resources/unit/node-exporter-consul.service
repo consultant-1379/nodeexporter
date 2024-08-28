@@ -1,0 +1,11 @@
+[Unit]
+Description=Node Exporter Consul Registration
+BindsTo=node-exporter.service
+After=node-exporter.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/ericsson/esm/bin/consul_reg.sh start
+ExecStop=/opt/ericsson/esm/bin/consul_reg.sh stop
+RemainAfterExit=yes
+SuccessExitStatus=SIGTERM
